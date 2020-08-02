@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 64
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 2
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: -6588277855492199448, guid: 022d8292566396349a5b4c836961c02a, type: 3}
+    - {fileID: 4444492014034858662, guid: 022d8292566396349a5b4c836961c02a, type: 3}
+    - {fileID: 7191570601408488674, guid: 022d8292566396349a5b4c836961c02a, type: 3}
+    - {fileID: -4113694234102452686, guid: 022d8292566396349a5b4c836961c02a, type: 3}
+    - {fileID: 5601323976189978565, guid: 2b118a9cc82486742a7e82803ff7e607, type: 3}
+    - {fileID: -761887118410055393, guid: 2b118a9cc82486742a7e82803ff7e607, type: 3}
+    totalSpriteSurfaceArea: 2718
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 7191570601408488674, guid: 022d8292566396349a5b4c836961c02a, type: 3}
+  - {fileID: -4113694234102452686, guid: 022d8292566396349a5b4c836961c02a, type: 3}
+  - {fileID: -6588277855492199448, guid: 022d8292566396349a5b4c836961c02a, type: 3}
+  - {fileID: 4444492014034858662, guid: 022d8292566396349a5b4c836961c02a, type: 3}
+  - {fileID: -761887118410055393, guid: 2b118a9cc82486742a7e82803ff7e607, type: 3}
+  - {fileID: 5601323976189978565, guid: 2b118a9cc82486742a7e82803ff7e607, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Outlaw_2
+  - Outlaw_3
+  - Outlaw_0
+  - Outlaw_1
+  - Weapons_1
+  - Weapons_0
+  m_Tag: Sprite Atlas
+  m_IsVariant: 0
