@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class TileManager : MonoBehaviour
 {
+    public TimeManager timeManager;
     public Tilemap tilemap;
     public GameObject tilePlacer;
     public BuildingGrid centerGrid;
@@ -45,7 +46,7 @@ public class TileManager : MonoBehaviour
     /// 
     /// ----------------------------------------------------------------
     /// 
-    void FixedUpdate()
+    void Update()
     {
         if(isCreating)
         {
