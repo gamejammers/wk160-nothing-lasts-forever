@@ -23,7 +23,7 @@ SpriteAtlas:
     platformSettings:
     - serializedVersion: 3
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 128
+      m_MaxTextureSize: 256
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
       m_TextureCompression: 0
@@ -42,19 +42,11 @@ SpriteAtlas:
       enableTightPacking: 0
     variantMultiplier: 1
     packables:
-    - {fileID: -6588277855492199448, guid: 022d8292566396349a5b4c836961c02a, type: 3}
-    - {fileID: 4444492014034858662, guid: 022d8292566396349a5b4c836961c02a, type: 3}
-    - {fileID: 7191570601408488674, guid: 022d8292566396349a5b4c836961c02a, type: 3}
-    - {fileID: -4113694234102452686, guid: 022d8292566396349a5b4c836961c02a, type: 3}
-    - {fileID: 5601323976189978565, guid: 2b118a9cc82486742a7e82803ff7e607, type: 3}
-    - {fileID: -761887118410055393, guid: 2b118a9cc82486742a7e82803ff7e607, type: 3}
-    - {fileID: 1090828248045784405, guid: 268e020ece9b7e64faff2839cbb9e0e3, type: 3}
-    - {fileID: 1422053495508807699, guid: 268e020ece9b7e64faff2839cbb9e0e3, type: 3}
-    - {fileID: 6682134226832712188, guid: 268e020ece9b7e64faff2839cbb9e0e3, type: 3}
-    - {fileID: -9030354518051562951, guid: 268e020ece9b7e64faff2839cbb9e0e3, type: 3}
-    - {fileID: -1222080835719219500, guid: 268e020ece9b7e64faff2839cbb9e0e3, type: 3}
-    - {fileID: 362041808890941029, guid: 268e020ece9b7e64faff2839cbb9e0e3, type: 3}
-    totalSpriteSurfaceArea: 4254
+    - {fileID: 2800000, guid: 022d8292566396349a5b4c836961c02a, type: 3}
+    - {fileID: 2800000, guid: 2b118a9cc82486742a7e82803ff7e607, type: 3}
+    - {fileID: 2800000, guid: 1f582c59cc926e6409066f9f84d05816, type: 3}
+    - {fileID: 2800000, guid: 268e020ece9b7e64faff2839cbb9e0e3, type: 3}
+    totalSpriteSurfaceArea: 5278
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -64,6 +56,7 @@ SpriteAtlas:
   - {fileID: -4113694234102452686, guid: 022d8292566396349a5b4c836961c02a, type: 3}
   - {fileID: -6588277855492199448, guid: 022d8292566396349a5b4c836961c02a, type: 3}
   - {fileID: 4444492014034858662, guid: 022d8292566396349a5b4c836961c02a, type: 3}
+  - {fileID: 21300000, guid: 1f582c59cc926e6409066f9f84d05816, type: 3}
   - {fileID: -761887118410055393, guid: 2b118a9cc82486742a7e82803ff7e607, type: 3}
   - {fileID: 5601323976189978565, guid: 2b118a9cc82486742a7e82803ff7e607, type: 3}
   - {fileID: 6682134226832712188, guid: 268e020ece9b7e64faff2839cbb9e0e3, type: 3}
@@ -77,6 +70,7 @@ SpriteAtlas:
   - Outlaw_3
   - Outlaw_0
   - Outlaw_1
+  - Wrench (1)
   - Weapons_1
   - Weapons_0
   - Cavern01t_3
