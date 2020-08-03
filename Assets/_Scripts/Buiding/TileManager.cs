@@ -12,13 +12,15 @@ public class TileManager : MonoBehaviour
     GameObject placingTile;
 
     public GameObject[] tiles;
-    bool isCreating = true;
+    bool isCreating = false;
     public void StartCreatingTile()
     {
         isCreating = true;
         tilePlacer.SetActive(true);
         placingTile = Instantiate( tiles[0], tilePlacer.transform.position, Quaternion.identity );
         placingTile.GetComponent<BoxCollider2D>().enabled = false;
+
+        timeManager.DoSlowmotion();
     }
 
     public void SetTile( )
@@ -27,9 +29,11 @@ public class TileManager : MonoBehaviour
 
         tilePlacer.SetActive(false);
         
-        placingTile.GetComponent<BoxCollider2D>().enabled = false;
+        placingTile.GetComponent<BoxCollider2D>().enabled = true;
 
         isCreating = false;
+
+        timeManager.BackToNormal();
     }
 
 
@@ -37,17 +41,12 @@ public class TileManager : MonoBehaviour
     /// 
     /// -------------------MONOBEHAVIOUR STUFF-------------------------
     /// 
-
-    void Start()
-    {
-        StartCreatingTile();
-    }
-
-    /// 
-    /// ----------------------------------------------------------------
-    /// 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCreatingTile();
+        }
         if(isCreating)
         {
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

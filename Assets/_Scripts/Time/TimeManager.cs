@@ -4,34 +4,35 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    public List<ISlowable> slowables;
+    public List<TimeScaleBehaviour> slowables;
     
     public void DoSlowmotion()
     {
         foreach (var item in slowables)
         {
-            item.SlowDown();
+            item.isSlowMotion = true;
+            Debug.Log("item.name");
         }
     }
     public void BackToNormal()
     {
         foreach (var item in slowables)
         {
-            item.BackToNormal();
+            item.isSlowMotion = false;
         }
     }
 
     /// <summary>
     /// call when a slowable created
     /// </summary>
-    public void AddSlowable( ISlowable s)
+    public void AddSlowable( TimeScaleBehaviour s)
     {
         slowables.Add(s);
     }
     /// <summary>
     /// call when a slowable removed
     /// </summary>
-    public void RemoveSlowable( ISlowable s)
+    public void RemoveSlowable( TimeScaleBehaviour s)
     {
         slowables.Remove(s);
     }
