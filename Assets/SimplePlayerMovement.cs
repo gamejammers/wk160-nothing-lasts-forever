@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SimplePlayerMovement : MonoBehaviour
+public class SimplePlayerMovement : TimeScaleBehaviour
 {
     [SerializeField, Range(1, 20)]
     private float moveSpeed;
