@@ -16,6 +16,6 @@ public class SimplePlayerMovement : TimeScaleBehaviour
         if (Mathf.Approximately(direction, 0)) return;
         MoveCharacter();
     }
-    private void SetMoveDirection(InputAction.CallbackContext _ctx) => direction = _ctx.ReadValue<float>();
+    public void SetMoveDirection(InputAction.CallbackContext _ctx) => direction = _ctx.ReadValue<float>();
     private void MoveCharacter() => body.velocity = new Vector2( direction * moveSpeed, body.velocity.y);
 }

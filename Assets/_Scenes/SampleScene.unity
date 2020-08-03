@@ -2738,52 +2738,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a09a85d6ce985694ba06e0e288a20a33, type: 3}
---- !u!1 &1417570668
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1417570670}
-  - component: {fileID: 1417570669}
-  m_Layer: 0
-  m_Name: Input Test
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1417570669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417570668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15291e730661a944a90c96c286835e6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputMapAsset: {fileID: -944628639613478452, guid: 676c5c1960669fc43820c0186bd56707, type: 3}
-  shotInputRef: {fileID: -7094128982693367947, guid: 676c5c1960669fc43820c0186bd56707, type: 3}
-  wrenchInputRef: {fileID: 8336823255369151424, guid: 676c5c1960669fc43820c0186bd56707, type: 3}
---- !u!4 &1417570670
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417570668}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1471099822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8142904362708568912, guid: a09a85d6ce985694ba06e0e288a20a33, type: 3}
@@ -2986,6 +2940,7 @@ MonoBehaviour:
   tilemap: {fileID: 471481513}
   tilePlacer: {fileID: 1745346831}
   centerGrid: {fileID: 294113629}
+  mouseWorldTracker: {fileID: 0}
   tiles:
   - {fileID: 8142904362708568914, guid: a09a85d6ce985694ba06e0e288a20a33, type: 3}
 --- !u!4 &1735019999

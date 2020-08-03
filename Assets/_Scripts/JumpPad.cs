@@ -20,9 +20,6 @@ public class JumpPad : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag(incomingObjectTag)) return;
-
-        Debug.Log(collision.gameObject.name);
-
         Rigidbody2D body = collision.gameObject.GetComponent<Rigidbody2D>();
         Vector2 collisioNormal = collider.Distance(collision.collider).normal;
         if (collisioNormal == Vector2.up)

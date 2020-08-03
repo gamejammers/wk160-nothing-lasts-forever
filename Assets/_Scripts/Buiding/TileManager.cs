@@ -1,80 +1,65 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
 
 public class TileManager : MonoBehaviour
 {
-<<<<<<< HEAD
-    public TimeManager timeManager;
-    public Tilemap tilemap;
-    public GameObject tilePlacer;
-    public BuildingGrid centerGrid;
-    GameObject placingTile;
-
-    public GameObject[] tiles;
-=======
-    public TimeManager timeManager = null;
-    public Tilemap tilemap = null;
-    public GameObject tilePlacer = null;
-    public BuildingGrid centerGrid = null;
-    GameObject placingTile = null;
-    // Added by Danny
-    [SerializeField]
-    private MouseWorldTracker mouseWorldTracker = null;
+    [SerializeField] private TimeManager timeManager = null;
+    [SerializeField] private Tilemap tilemap = null;
+    [SerializeField] private GameObject tilePlacer = null;
+    [SerializeField] private BuildingGrid centerGrid = null;
+    [SerializeField] private SpriteRenderer placingTileSprite = null;
+    [SerializeField] private MouseWorldTracker mouseWorldTracker = null;
+    private GameObject placingTile = null;
+    private Vector2 pos = Vector2.zero;
+    private Vector2Int coordinate = Vector2Int.zero;
 
     public GameObject[] tiles = null;
->>>>>>> Danny
     bool isCreating = false;
-    public void StartCreatingTile()
+
+    public void StartCreatingTile(InputAction.CallbackContext _ctx)
     {
+        placingTileSprite.enabled = true;
+        placingTileSprite.sprite = tiles[0].GetComponent<SpriteRenderer>().sprite;
         isCreating = true;
         tilePlacer.SetActive(true);
-        placingTile = Instantiate( tiles[0], tilePlacer.transform.position, Quaternion.identity );
-        placingTile.GetComponent<BoxCollider2D>().enabled = false;
-
         timeManager.DoSlowmotion();
     }
 
-    public void SetTile( )
+    public void StopCreatingTile(InputAction.CallbackContext _ctx)
     {
-        placingTile.transform.SetParent(tilemap.transform);
-
+        placingTileSprite.enabled = false;
+        placingTileSprite.sprite = null;
         tilePlacer.SetActive(false);
-        
-        placingTile.GetComponent<BoxCollider2D>().enabled = true;
-
         isCreating = false;
-
         timeManager.BackToNormal();
     }
 
+    public void SetTile(InputAction.CallbackContext _ctx)
+    {
+        if (centerGrid.alertSprite.enabled == false)
+        {
+            GameObject placingTile = Instantiate(tiles[0], tilemap.transform);
+            placingTile.transform.position = pos;
+        }
+        else Debug.Log("There is a ground here!!");
+    }
 
-
-    /// 
-    /// -------------------MONOBEHAVIOUR STUFF-------------------------
-    /// 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(isCreating == false && (coordinate != Vector2Int.zero || pos != Vector2.zero))
         {
-            StartCreatingTile();
+            coordinate = Vector2Int.zero;
+            pos = Vector2.zero;
         }
-        if(isCreating)
+        if(isCreating == true)
         {
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2Int coordinate = (Vector2Int)tilemap.WorldToCell(mouseWorldPos);
-            Vector2 pos = new Vector2( coordinate.x + 0.5f, coordinate.y + 0.5f );
-            placingTile.transform.position = pos;
+            Vector3 mouseWorldPos = mouseWorldTracker.WorldSpaceMousePosition;
+            coordinate = (Vector2Int)tilemap.WorldToCell(mouseWorldPos);
+            pos = new Vector2( coordinate.x + 0.5f, coordinate.y + 0.5f );
             tilePlacer.transform.position = pos;
-
-            if(Input.GetMouseButtonDown(1))
-            {
-                if(centerGrid.alertSprite.enabled == false) // there is no ground
-                    SetTile();
-                else
-                    Debug.Log("There is a ground here!!");
-            }
         }
     }
 }
