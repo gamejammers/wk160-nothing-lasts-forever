@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Gameplay Controls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/_Scriptables/Input/Gameplay Controls.inputactions'
 
 using System;
 using System.Collections;
@@ -33,6 +33,14 @@ public class @GameplayControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""aa9ff236-2df2-4e33-becf-7a6698b2e83b"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -57,6 +65,39 @@ public class @GameplayControls : IInputActionCollection, IDisposable
                     ""action"": ""Wrench Hit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""703f74b3-1cfb-4dbf-b35d-7ea9e74b6476"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""f0522eb1-852b-4e33-a951-eb8d6cff3513"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""7ea57c7b-df11-4f00-9b94-6ee5875ddefc"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -84,6 +125,7 @@ public class @GameplayControls : IInputActionCollection, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
         m_Gameplay_WrenchHit = m_Gameplay.FindAction("Wrench Hit", throwIfNotFound: true);
+        m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -135,12 +177,14 @@ public class @GameplayControls : IInputActionCollection, IDisposable
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Shoot;
     private readonly InputAction m_Gameplay_WrenchHit;
+    private readonly InputAction m_Gameplay_Move;
     public struct GameplayActions
     {
         private @GameplayControls m_Wrapper;
         public GameplayActions(@GameplayControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
         public InputAction @WrenchHit => m_Wrapper.m_Gameplay_WrenchHit;
+        public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -156,6 +200,9 @@ public class @GameplayControls : IInputActionCollection, IDisposable
                 @WrenchHit.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWrenchHit;
                 @WrenchHit.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWrenchHit;
                 @WrenchHit.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWrenchHit;
+                @Move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -166,6 +213,9 @@ public class @GameplayControls : IInputActionCollection, IDisposable
                 @WrenchHit.started += instance.OnWrenchHit;
                 @WrenchHit.performed += instance.OnWrenchHit;
                 @WrenchHit.canceled += instance.OnWrenchHit;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
             }
         }
     }
@@ -183,5 +233,6 @@ public class @GameplayControls : IInputActionCollection, IDisposable
     {
         void OnShoot(InputAction.CallbackContext context);
         void OnWrenchHit(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
     }
 }

@@ -1,5 +1,5 @@
 {
-    "name": "New Controls",
+    "name": "Gameplay Controls",
     "maps": [
         {
             "name": "Gameplay",
@@ -18,6 +18,14 @@
                     "type": "Button",
                     "id": "453057b1-f5a9-45e8-b8f6-82ecb08ea836",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "aa9ff236-2df2-4e33-becf-7a6698b2e83b",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 }
@@ -44,6 +52,39 @@
                     "action": "Wrench Hit",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "703f74b3-1cfb-4dbf-b35d-7ea9e74b6476",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "f0522eb1-852b-4e33-a951-eb8d6cff3513",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "7ea57c7b-df11-4f00-9b94-6ee5875ddefc",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
