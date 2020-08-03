@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class TileManager : MonoBehaviour
 {
+<<<<<<< HEAD
     public TimeManager timeManager;
     public Tilemap tilemap;
     public GameObject tilePlacer;
@@ -12,6 +13,18 @@ public class TileManager : MonoBehaviour
     GameObject placingTile;
 
     public GameObject[] tiles;
+=======
+    public TimeManager timeManager = null;
+    public Tilemap tilemap = null;
+    public GameObject tilePlacer = null;
+    public BuildingGrid centerGrid = null;
+    GameObject placingTile = null;
+    // Added by Danny
+    [SerializeField]
+    private MouseWorldTracker mouseWorldTracker = null;
+
+    public GameObject[] tiles = null;
+>>>>>>> Danny
     bool isCreating = false;
     public void StartCreatingTile()
     {

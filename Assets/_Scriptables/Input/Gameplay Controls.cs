@@ -35,10 +35,34 @@ public class @GameplayControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Wrench Build"",
+                    ""type"": ""Button"",
+                    ""id"": ""0ae23990-a1ad-45e4-9ad4-aae0e079a0bd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""aa9ff236-2df2-4e33-becf-7a6698b2e83b"",
                     ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""d5096746-5fbd-4a86-9b10-6f65dcaed848"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Build Mode"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb9758d3-b1eb-4de1-9d27-e661d502d4dd"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -98,6 +122,39 @@ public class @GameplayControls : IInputActionCollection, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""12fcf775-bcb9-42e3-9307-019c00b943f7"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac69a567-e398-4b12-8650-5fa26f1042a6"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": ""Press,Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Build Mode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b28f9cff-b33c-4e79-b898-d71c6b152162"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Wrench Build"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -125,7 +182,10 @@ public class @GameplayControls : IInputActionCollection, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
         m_Gameplay_WrenchHit = m_Gameplay.FindAction("Wrench Hit", throwIfNotFound: true);
+        m_Gameplay_WrenchBuild = m_Gameplay.FindAction("Wrench Build", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
+        m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
+        m_Gameplay_BuildMode = m_Gameplay.FindAction("Build Mode", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -177,14 +237,20 @@ public class @GameplayControls : IInputActionCollection, IDisposable
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Shoot;
     private readonly InputAction m_Gameplay_WrenchHit;
+    private readonly InputAction m_Gameplay_WrenchBuild;
     private readonly InputAction m_Gameplay_Move;
+    private readonly InputAction m_Gameplay_Jump;
+    private readonly InputAction m_Gameplay_BuildMode;
     public struct GameplayActions
     {
         private @GameplayControls m_Wrapper;
         public GameplayActions(@GameplayControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
         public InputAction @WrenchHit => m_Wrapper.m_Gameplay_WrenchHit;
+        public InputAction @WrenchBuild => m_Wrapper.m_Gameplay_WrenchBuild;
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
+        public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
+        public InputAction @BuildMode => m_Wrapper.m_Gameplay_BuildMode;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -200,9 +266,18 @@ public class @GameplayControls : IInputActionCollection, IDisposable
                 @WrenchHit.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWrenchHit;
                 @WrenchHit.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWrenchHit;
                 @WrenchHit.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWrenchHit;
+                @WrenchBuild.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWrenchBuild;
+                @WrenchBuild.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWrenchBuild;
+                @WrenchBuild.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnWrenchBuild;
                 @Move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
+                @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @BuildMode.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBuildMode;
+                @BuildMode.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBuildMode;
+                @BuildMode.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBuildMode;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -213,9 +288,18 @@ public class @GameplayControls : IInputActionCollection, IDisposable
                 @WrenchHit.started += instance.OnWrenchHit;
                 @WrenchHit.performed += instance.OnWrenchHit;
                 @WrenchHit.canceled += instance.OnWrenchHit;
+                @WrenchBuild.started += instance.OnWrenchBuild;
+                @WrenchBuild.performed += instance.OnWrenchBuild;
+                @WrenchBuild.canceled += instance.OnWrenchBuild;
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
+                @BuildMode.started += instance.OnBuildMode;
+                @BuildMode.performed += instance.OnBuildMode;
+                @BuildMode.canceled += instance.OnBuildMode;
             }
         }
     }
@@ -233,6 +317,9 @@ public class @GameplayControls : IInputActionCollection, IDisposable
     {
         void OnShoot(InputAction.CallbackContext context);
         void OnWrenchHit(InputAction.CallbackContext context);
+        void OnWrenchBuild(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnBuildMode(InputAction.CallbackContext context);
     }
 }

@@ -22,10 +22,34 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Wrench Build",
+                    "type": "Button",
+                    "id": "0ae23990-a1ad-45e4-9ad4-aae0e079a0bd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Move",
                     "type": "Value",
                     "id": "aa9ff236-2df2-4e33-becf-7a6698b2e83b",
                     "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "d5096746-5fbd-4a86-9b10-6f65dcaed848",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Build Mode",
+                    "type": "Button",
+                    "id": "bb9758d3-b1eb-4de1-9d27-e661d502d4dd",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -85,6 +109,39 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "12fcf775-bcb9-42e3-9307-019c00b943f7",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ac69a567-e398-4b12-8650-5fa26f1042a6",
+                    "path": "<Keyboard>/e",
+                    "interactions": "Press,Press(behavior=1)",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Build Mode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b28f9cff-b33c-4e79-b898-d71c6b152162",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Wrench Build",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
