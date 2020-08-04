@@ -11,7 +11,7 @@ public class TimeManager : MonoBehaviour
         foreach (var item in slowables)
         {
             item.isSlowMotion = true;
-            Debug.Log("item.name");
+            Debug.Log(item.name);
         }
     }
     public void BackToNormal()
