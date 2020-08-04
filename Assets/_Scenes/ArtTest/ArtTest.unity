@@ -28103,7 +28103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSlowMotion: 0
-  moveSpeed: 8.77
+  moveSpeed: 3
+  slomoTime: 1
 --- !u!4 &5871634165414008720
 Transform:
   m_ObjectHideFlags: 0
