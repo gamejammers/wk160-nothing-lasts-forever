@@ -100,7 +100,7 @@ public class PlayerView
         UpdateBodyPart(rightHand, mousepos, Color.green);
         UpdateBodyPart(head, mousepos, Color.blue);
 
-        animator.SetBool("ismoving", playerMovement.isMoving);
+        animator.SetBool("ismoving", playerMovement.IsMoving);
 
         if(mousepos.x - transform.position.x < 0f)
         {

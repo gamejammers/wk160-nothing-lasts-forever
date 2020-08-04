@@ -9,6 +9,9 @@ public class SimplePlayerMovement : TimeScaleBehaviour
     private float moveSpeed = 10, maxSpeed = 50;
     private float direction = 0;
     private Rigidbody2D body;
+    private bool isMoving;
+
+    public bool IsMoving => isMoving;
 
     private void Awake() => body = GetComponent<Rigidbody2D>();
     private void FixedUpdate()
