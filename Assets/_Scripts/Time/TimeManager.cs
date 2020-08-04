@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TimeManager : MonoBehaviour
 {
     public List<TimeScaleBehaviour> slowables;
     
-    public void DoSlowmotion()
+    public void DoSlowmotion(InputAction.CallbackContext _ctx)
     {
         foreach (var item in slowables)
         {
@@ -14,7 +15,7 @@ public class TimeManager : MonoBehaviour
             Debug.Log("item.name");
         }
     }
-    public void BackToNormal()
+    public void BackToNormal(InputAction.CallbackContext _ctx)
     {
         foreach (var item in slowables)
         {

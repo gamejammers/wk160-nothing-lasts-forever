@@ -1,29 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BuildingGrid : MonoBehaviour
 {
-    public SpriteRenderer alertSprite;
+    [SerializeField]
+    private GameObject alertVisual = null;
+    public GameObject AlertVisual => alertVisual;
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Ground" )
-        {
-            alertSprite.enabled = true;
-        }
+        if (other.CompareTag("Ground")) alertVisual.SetActive(true);
     }
+
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag == "Ground" )
-        {
-            alertSprite.enabled = true;
-        }
+        if (other.CompareTag("Ground") && !alertVisual.activeSelf) alertVisual.SetActive(true);
     }
+
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other.tag == "Ground" )
-        {
-            alertSprite.enabled = false;
-        }
+        if (other.CompareTag("Ground")) alertVisual.SetActive(false);
     }
 }

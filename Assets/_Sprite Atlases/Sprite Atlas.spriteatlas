@@ -23,7 +23,7 @@ SpriteAtlas:
     platformSettings:
     - serializedVersion: 3
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 1024
+      m_MaxTextureSize: 256
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
       m_TextureCompression: 0
@@ -105,7 +105,10 @@ SpriteAtlas:
     - {fileID: 7751044578096509278, guid: b954299e9a7b0e54c8fe571afd6e9f7b, type: 3}
     - {fileID: 3107981977851197478, guid: b954299e9a7b0e54c8fe571afd6e9f7b, type: 3}
     - {fileID: 5654500218166132084, guid: b954299e9a7b0e54c8fe571afd6e9f7b, type: 3}
-    totalSpriteSurfaceArea: 22686
+    - {fileID: 2800000, guid: ea3826b778aed524297e6c73b256f812, type: 3}
+    - {fileID: 2800000, guid: 49035bc324aa2bc46ae8ad0a43de3951, type: 3}
+    - {fileID: 2800000, guid: 66b8108b5b9cd8146b69fbd2b25773d7, type: 3}
+    totalSpriteSurfaceArea: 25758
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -140,7 +143,10 @@ SpriteAtlas:
   - {fileID: -4113694234102452686, guid: 022d8292566396349a5b4c836961c02a, type: 3}
   - {fileID: -6588277855492199448, guid: 022d8292566396349a5b4c836961c02a, type: 3}
   - {fileID: 4444492014034858662, guid: 022d8292566396349a5b4c836961c02a, type: 3}
+  - {fileID: 21300000, guid: 49035bc324aa2bc46ae8ad0a43de3951, type: 3}
+  - {fileID: 21300000, guid: ea3826b778aed524297e6c73b256f812, type: 3}
   - {fileID: 21300000, guid: 1f582c59cc926e6409066f9f84d05816, type: 3}
+  - {fileID: 21300000, guid: 66b8108b5b9cd8146b69fbd2b25773d7, type: 3}
   - {fileID: 3347065038892287825, guid: 339fe85c79e6dd94fbf8674769674b38, type: 3}
   - {fileID: 2239784609871810536, guid: 339fe85c79e6dd94fbf8674769674b38, type: 3}
   - {fileID: -615377642091431878, guid: 339fe85c79e6dd94fbf8674769674b38, type: 3}
@@ -204,7 +210,10 @@ SpriteAtlas:
   - Outlaw_3
   - Outlaw_0
   - Outlaw_1
+  - Grid Preview
+  - Fill
   - Wrench (1)
+  - Outline
   - Reticles_1
   - Reticles_0
   - Reticles_3
