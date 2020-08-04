@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class CharacterUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Transform heartParent;
+    public GameObject heartPrefab;
+    public void SetHearts( int heartAmount)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        for (int i = 0; i < heartAmount; i++)
+        {
+            Instantiate(heartPrefab).transform.SetParent(heartParent);
+        }
     }
 }
