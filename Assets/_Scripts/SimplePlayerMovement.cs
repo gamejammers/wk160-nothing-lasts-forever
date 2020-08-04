@@ -8,6 +8,7 @@ public class SimplePlayerMovement : TimeScaleBehaviour
     [SerializeField, Range(1, 20)]
     private float moveSpeed;
     private float direction = 0;
+    [SerializeField] float slomoTime;
     private Rigidbody2D body;
     private Animator animator;
 
@@ -21,8 +22,11 @@ public class SimplePlayerMovement : TimeScaleBehaviour
 
     private void FixedUpdate()
     {
-        if (Mathf.Approximately(direction, 0)) return;
-        MoveCharacter();
+        if( OnUpdate(slomoTime) )
+        {
+            if (Mathf.Approximately(direction, 0)) return;
+            MoveCharacter();
+        }
     }
 
     public void SetMoveDirection(InputAction.CallbackContext _ctx) 
@@ -32,6 +36,6 @@ public class SimplePlayerMovement : TimeScaleBehaviour
 
     private void MoveCharacter() 
     {
-        body.velocity = new Vector2( direction * moveSpeed, body.velocity.y);
+        body.position += new Vector2( direction * moveSpeed * Time.fixedDeltaTime, 0);
     }
 }
